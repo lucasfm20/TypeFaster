@@ -6,7 +6,7 @@ from frase import listaFacil
 
 
 def type():
-    numAle =random.randint(0,29)
+    numAle =random.randint(0,len(listaFacil) - 1)
     
     print(listaFacil[numAle])
     time.sleep(0.5)
