@@ -2,11 +2,14 @@ import time
 import random
 from frase import listaFacil
 
-
+menor=100
 
 
 def type():
-    numAle =random.randint(0,len(listaFacil) - 1)
+    global menor
+    verifica = False
+
+    numAle =random.randint(0, len(listaFacil) - 1)
     
     print(listaFacil[numAle])
     time.sleep(0.5)
@@ -17,16 +20,23 @@ def type():
     tempoFim =time.time()
     if frase == listaFacil[numAle]:
         print()
-        print("acertou")
+        print("acertou!")
+        verifica =True
 
     else:
         print()
-        print("errou")
+        print("errou!")
 
     tempoFinal =tempoFim-tempoIni
+    
+
+    if tempoFinal<menor and verifica == True:
+       menor=tempoFinal
 
     print(f"Levou {tempoFinal}")
     time.sleep(1.5)
+    print()
+    print(f"Seu record é {menor}")
 
 def pontua():
    print()
@@ -60,3 +70,5 @@ def menu():
 
 
 menu()
+
+#Pyinstaller não reconhecido python -m PyInstaller main.py
