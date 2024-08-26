@@ -20,7 +20,7 @@ if (tempos[0]==0):
     
      cursor.execute('''
                            INSERT INTO Tempo(recorde,data,nivel)
-                           VALUES(20.00,1800-01-01,1) '''
+                           VALUES(50.00,1800-01-01,1) '''
                            ,)
      conn.commit()
 
@@ -36,16 +36,20 @@ def deleteTab():
     print("Tabela deletada")
 
 
-def verifNivel():
-    cursor.execute('SELECT nivel,recorde from Tempo')
+def verifNivel(nivel_atual):
+    cursor.execute('SELECT nivel, recorde FROM Tempo WHERE nivel = ?', (nivel_atual,))
     tempos = cursor.fetchall()
-    if (tempos): 
-        for tempo in tempos:
-            
-            return tempo
 
-#verifNivel()
+    if tempos:
+        menor_tempo = min(tempos, key=lambda x: x[1])  
+        return menor_tempo[1]  
+    else:
+        return None  
 
+
+        
+
+#verifNivel(2)
 #consultaTab()
 #deleteTab()
     
