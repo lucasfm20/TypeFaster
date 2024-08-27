@@ -89,7 +89,7 @@ def pontua(nivel):
     if nivel == 2 :
         temp = 1.5
     elif nivel == 3:
-        temp = 2.0
+        temp = 2.2
     print()
     print(f"Pontuação < {1*temp:.2f}s = Impossível")
     print(f"Pontuação < {2*temp:.2f}s = Lenda")
