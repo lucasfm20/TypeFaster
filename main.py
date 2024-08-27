@@ -6,9 +6,9 @@ from datetime import datetime
 from banco import cursor, conn, verifNivel
 
 
-menor= None
-menor2 = None
-menor3 = None
+menor= 40
+menor2 = 40
+menor3 = 40
 nivel = 1
 dataAtual = datetime.now().strftime('%Y-%m-%d T%H:%M:%S')
 
@@ -126,11 +126,11 @@ def niveis():
                 time.sleep(1.0)
 
         elif escolha == 3:
-            if (verifNivel(2) and verifNivel(2) <= 6.00) or (nivel == 2 and menor <= 6.00):
+            if (verifNivel(2) and verifNivel(2) <= 4.00) or (nivel == 2 and menor2 <= 4.00):
                 nivel = 3
                 menuJogo(nivel)
             else:
-                print("\nÉ necessário ter um desempenho menor que 6s no nível 2 para avançar de nível!")
+                print("\nÉ necessário ter um desempenho menor que 4s no nível 2 para avançar de nível!")
                 time.sleep(1.0)
 
         elif escolha == 4:
